@@ -7,6 +7,7 @@ This currently includes:
 
 - Validating and indexing the metadata for a project, see [`src/index-project.js`](src/index-project.js).
   This is triggered upon the [creation of an issue titled "upload complete"](.github/workflows/index-project.yaml) through a recognized bot account.
+  Administrators can also close and reopen the issue to re-attempt indexing, e.g., after updating the schemas.
 - Purging expired or incomplete projects, see [`src/purge-projects.js`](src/purge-projects.js).
   This is triggered on [a daily schedule for all issues titled "purge project"](.github/workflows/purge-projects.yaml).
 
