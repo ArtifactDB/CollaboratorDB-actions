@@ -29,7 +29,7 @@ Several secrets must be defined for the Actions (see the Settings > Secrets > Ac
 - `R2_ACCESS_KEY_ID`, for the access key ID.
 - `R2_SECRET_ACCESS_KEY`, for the access secret.
 - `GH_BOT_TOKEN`, for the GitHub personal access token of the bot account.
-  This should have at least public repo privileges.
+  This should be capable of writing issues on a public repository; typically, we use a classic token with `repo:public` permissions.
 
 For forks, we have to re-enable some features:
 
