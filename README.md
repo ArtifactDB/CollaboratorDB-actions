@@ -33,9 +33,9 @@ Several secrets must be defined for the Actions (see the Settings > Secrets > Ac
 
 For forks, we have to re-enable some features:
 
-- Turn the Issues back on (in Settings > General).
+- Turn the Issues back on (in "Settings > General").
 - Re-enable the Actions in the "Actions" tab.
-- Re-enable the scheduled "Purge gypsum projects" workflow.
+- Re-enable the scheduled purge workflow ("Actions > Purge gypsum projects").
 
 And that's it.
-Make sure you use the full name of your repository (i.e., `OWNER/REPO`) in the **gypsum** worker's configuration. 
+Make sure you use the full name of your new repository (i.e., `OWNER/REPO`) in the **gypsum** worker's [`GITHUB_CI_REPOSITORY` variable](https://github.com/ArtifactDB/gypsum-worker/blob/master/wrangler.toml).
