@@ -83,12 +83,13 @@ try {
     let writes = [];
     let removes = [];
 
-    // Making sure the lock exists.
+    // Making sure the lock exists, and acquiring the ID of the uploading user.
+    let uploader;
     {
         let lockpath = internal.lock(project, version);
-        let lck = s3.headObject({ Bucket: bucket_name, Key: lockpath });
         try {
-            await lck.promise();
+            let lck = await utils.getJson(s3, bucket_name, lockpath);
+            uploader = lck.user_name;
         } catch (e) {
             throw new Error("failed to acquire the lock file for this project version");
         }
@@ -100,6 +101,7 @@ try {
     let has_expiry = false;
     {
         let version_meta = {
+            uploader_name: uploader,
             upload_time: (new Date(body.timestamp)).toISOString(),
             index_time: (new Date(index_time)).toISOString()
         };
