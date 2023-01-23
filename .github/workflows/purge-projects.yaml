@@ -28,7 +28,7 @@ jobs:
         run: |
           source config.sh
           node src/purge-projects.js \
-            --r2bucket gypsum-test \
+            --r2bucket $R2_BUCKET_NAME \
             --ghrepo ${{ github.repository }} \
             --cfid $CF_ACCOUNT_ID \
             --r2key ${{ secrets.R2_ACCESS_KEY_ID }} \
